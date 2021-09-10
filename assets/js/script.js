@@ -1,22 +1,25 @@
-var searchResult1 = [];
-var searchResult2 = [];
-var searchResult3 = [];
+// for global variables
 
 
-
-function foodSearch(food){
-    
+function foodSearchResults(food){
     // Spoonacular API Key
     var spoonAPIKey = "c23f00ad85984a518a8ef39763c81e2b"
-    food = "muffins";
+    // food = "muffins"; for test purposes
     var queryURL = "https://api.spoonacular.com/food/products/search?query=" + food + "&apiKey=" + spoonAPIKey;
     
     fetch(queryURL)
-    .then(function (response){
-        console.log(response)
-        response.json().then(function (data){
-            console.log(data);
-            
+    .then(function (foodResponse){
+        console.log(foodResponse)
+        response.json().then(function (foodData){
+            console.log(foodData);
+
+            for (var i=0; i<4; i++){
+            $(`#search-result-${i}`).empty()
+            $(`#search-result-${i}`).append(`
+                <h2>Heading</h2>
+                <div>data</div>
+            `);
+            };
 
 
 
@@ -27,8 +30,25 @@ function foodSearch(food){
     
 };
 
-// Search button handler
-$("#search-btn").on("click", foodSearch);
+function foodSearch(evt){
+    evt.preventDefault();
+
+    var searchInput = $("#food-search-input").val().trim();
+    
+    // quit function if no input when button clicked
+    if (searchInput === null){
+        return;
+    };
+    
+    // remove search from bar
+    $('#search-input').val('');
+
+    foodSearchResults(searchInput);
+};
+
+
+// Food search button handler
+$("#food-search-btn").on("click", foodSearch);
 
 
 function exerciseSearch(){
