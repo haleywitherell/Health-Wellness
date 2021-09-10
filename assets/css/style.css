@@ -1,5 +1,6 @@
 p {
     text-align: center;
+    padding-top: 10px;
 }
 
 .columns {
@@ -13,3 +14,4 @@ p {
     transition: transform 100ms ;
     transform: scale(1.3);
 }
+
