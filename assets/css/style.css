@@ -16,5 +16,6 @@ p {
 }
 
 .field {
-    margin-left: 30%;
+    margin: auto;
+    width: 30%;
 }
