@@ -7,3 +7,9 @@ p {
     margin:auto;
     text-align: center;
 }
+
+.column:hover {
+    cursor: pointer;
+    transition: transform 100ms ;
+    transform: scale(1.3);
+}
