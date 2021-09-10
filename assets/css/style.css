@@ -3,3 +3,9 @@ p {
     padding-top: 10px;
 }
 
+.columns {
+    padding-top: 25px;
+    margin:auto;
+    text-align: center;
+}
+
