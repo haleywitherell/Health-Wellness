@@ -21,6 +21,8 @@ text-align: center;
 }
 
 .field {
-    margin-left: 30%;
+    margin-left: 30%
+    margin: auto;
+    width: 30%;
 }
 
