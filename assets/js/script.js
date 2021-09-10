@@ -1,3 +1,9 @@
+var searchResult1 = [];
+var searchResult2 = [];
+var searchResult3 = [];
+
+
+
 function foodSearch(food){
     
     // Spoonacular API Key
@@ -10,6 +16,12 @@ function foodSearch(food){
         console.log(response)
         response.json().then(function (data){
             console.log(data);
+            
+
+
+
+
+
         });
     });
     
