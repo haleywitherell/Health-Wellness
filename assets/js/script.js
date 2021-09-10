@@ -1,7 +1,3 @@
-
-
-
-
 function foodSearch(food){
     
     // Spoonacular API Key
@@ -21,6 +17,7 @@ function foodSearch(food){
 
 // Search button handler
 $("#search-btn").on("click", foodSearch);
+
 
 function exerciseSearch(){
 
@@ -50,4 +47,5 @@ fetch("https://exercisedb.p.rapidapi.com/exercises", {
 };
 
 exerciseSearch();
+
 
