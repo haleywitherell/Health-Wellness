@@ -10,20 +10,17 @@ function foodSearchResults(food){
     fetch(queryURL)
     .then(function (foodResponse){
         console.log(foodResponse)
-        response.json().then(function (foodData){
+        foodResponse.json().then(function (foodData){
             console.log(foodData);
-
-            for (var i=0; i<4; i++){
+            
+            //var totalProducts = data.totalProducts;
+            for (var i=0; i<5; i++){
             $(`#search-result-${i}`).empty()
             $(`#search-result-${i}`).append(`
-                <h2>Heading</h2>
-                <div>data</div>
+                <img src=${foodData.products[i].image}></img>
+                <div>${foodData.products[i].title}</div>
             `);
             };
-
-
-
-
 
         });
     });
@@ -32,7 +29,7 @@ function foodSearchResults(food){
 
 function foodSearch(evt){
     evt.preventDefault();
-
+    alert("Here!");
     var searchInput = $("#food-search-input").val().trim();
     
     // quit function if no input when button clicked
@@ -41,7 +38,7 @@ function foodSearch(evt){
     };
     
     // remove search from bar
-    $('#search-input').val('');
+    $("#food-search-input").val('');
 
     foodSearchResults(searchInput);
 };
