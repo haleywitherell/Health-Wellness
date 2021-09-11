@@ -40,7 +40,8 @@ function createSearchResults(searchedItem, page){
             <label class="label">Select A Day</label>
             <div class="control">
             <div class="select">
-            <select>
+            <select id=${j}>
+            <option>Select a Day</option>
             <option>Sunday</option>
             <option>Monday</option>
             <option>Tuesday</option>
@@ -56,8 +57,21 @@ function createSearchResults(searchedItem, page){
         j++
         newPage = i;
     };
+    // function for sending drop down bar info to calander 
+    $("select").change(function(){
+        var day = $(this).val()
+        var pickedResult = $(this).attr("id")
+    
+        var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent)
+        $(`#${day}`).append(newP)
+    
+    })
 };
 
+
+// $("document").on("change", "select", function() {
+//     console.log("there was change")
+// })
 // function for initial food search
 function foodSearch(evt){
     evt.preventDefault();
@@ -85,6 +99,8 @@ $(".next-result").on("click", function(evt){
 
 var exerciseAPI;
 var exerciseNewPage = 0;
+
+// console.log($("select"))
 
 function exerciseSearch(){
 
@@ -119,10 +135,7 @@ function createExerciseSearchResults(){
 //console.log(exerciseData[Math.floor(Math.random())].name);
 //console.log(exerciseData[0].name)
 
-exerciseSearch();
-
-
-// function for sending drop down bar info to calander 
+// exerciseSearch();
 
 
 
