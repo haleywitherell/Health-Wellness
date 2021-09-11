@@ -1,12 +1,13 @@
 // for global variables
 var foodAPI;
 var newPage = 0;
+var foodOrExercise = 0;
 
 // function for food api call
 function foodSearchResults(food){
     // Spoonacular API Key
+    foodOrExercise = 1;
     var spoonAPIKey = "c23f00ad85984a518a8ef39763c81e2b"
-
     var queryURL = "https://api.spoonacular.com/food/products/search?query=" + food + "&number=100&apiKey=" + spoonAPIKey;
     
     fetch(queryURL)
@@ -94,7 +95,15 @@ function foodSearch(evt){
 $("#food-search-btn").on("click", foodSearch);
 // Next result button handler
 $(".next-result").on("click", function(evt){
-    createSearchResults(foodAPI, newPage);
+    if(foodOrExercise === 0){
+        return;
+    };
+    if(foodOrExercise === 1){
+        createSearchResults(foodAPI, newPage);
+    };
+    if(foodOrExercise ===2){
+        createExerciseSearchResults(exerciseAPI);
+    };
 });
 
 var exerciseAPI;
@@ -103,24 +112,25 @@ var exerciseAPI;
 // console.log($("select"))
 
 function exerciseSearch(){
-
-fetch("https://exercisedb.p.rapidapi.com/exercises", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "exercisedb.p.rapidapi.com",
-		"x-rapidapi-key": "947315c5d7msh8e150cb96f6debap19e15cjsn514f7b11e3e3"
-	}
-})
-.then(exerciseResponse => {
-	console.log(exerciseResponse);
-    exerciseResponse.json().then(function(exerciseData){
-        console.log(exerciseData[Math.floor(Math.random()*1326)]);
-        exerciseAPI = exerciseData;
+    
+    foodOrExercise = 2;
+    fetch("https://exercisedb.p.rapidapi.com/exercises", {
+	    "method": "GET",
+	    "headers": {
+		    "x-rapidapi-host": "exercisedb.p.rapidapi.com",
+		    "x-rapidapi-key": "947315c5d7msh8e150cb96f6debap19e15cjsn514f7b11e3e3"
+	    }
+    })
+    .then(exerciseResponse => {
+	    console.log(exerciseResponse);
+        exerciseResponse.json().then(function(exerciseData){
+            console.log(exerciseData[Math.floor(Math.random()*1326)]);
+            exerciseAPI = exerciseData;
         
-        createExerciseSearchResults(exerciseAPI);
+            createExerciseSearchResults(exerciseAPI);
+            });
         });
-    });
-};
+    };
 
 function createExerciseSearchResults(searchedItem){
     
