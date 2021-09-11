@@ -28,6 +28,9 @@ h1 {
     transform: scale(1.125);
 }
 
+.column.box{
+    min-height: 400px;    
+}
 
 .input {
 text-align: center;
