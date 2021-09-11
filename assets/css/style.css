@@ -81,3 +81,7 @@ text-align: center;
     margin-left: 80px;
 
 }
+
+#extra-day{
+    display: none;
+}
