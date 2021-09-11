@@ -6,7 +6,7 @@ var newPage = 0;
 function foodSearchResults(food){
     // Spoonacular API Key
     var spoonAPIKey = "c23f00ad85984a518a8ef39763c81e2b"
-    // food = "muffins"; for test purposes
+
     var queryURL = "https://api.spoonacular.com/food/products/search?query=" + food + "&number=100&apiKey=" + spoonAPIKey;
     
     fetch(queryURL)
@@ -24,7 +24,7 @@ function foodSearchResults(food){
 
 // function to append the search results to the dom
 function createSearchResults(searchedItem, page){
-    alert(page);
+    
     if(foodAPI === null){
         return;
     }
