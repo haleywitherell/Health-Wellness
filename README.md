@@ -1,4 +1,4 @@
-# Health and Wellness 
+# Health and Wellness Planner
 
 # Acceptance Criteria
 
