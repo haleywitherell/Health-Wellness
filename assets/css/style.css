@@ -56,6 +56,7 @@ text-align: center;
 .next-result:hover{
     cursor: pointer;
     transition: transform 100ms ;
+
     transform: scale(1.15);
 }
 
@@ -67,4 +68,16 @@ text-align: center;
 
 #grocery-list {
     padding-top: 30px;
+
+    transform: scale(1.3);
+}
+
+.options {
+    margin: auto;
+    width: 200px;
+}
+
+.spacing {
+    margin-left: 80px;
+
 }
