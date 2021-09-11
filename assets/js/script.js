@@ -24,7 +24,6 @@ function foodSearchResults(food){
 
 // function to append the search results to the dom
 function createSearchResults(searchedItem, page){
-    alert(page);
     if(foodAPI === null){
         return;
     }
@@ -36,6 +35,22 @@ function createSearchResults(searchedItem, page){
         $(`#search-result-${j}`).append(`
             <img src=${searchedItem.products[i].image}></img>
             <div>${searchedItem.products[i].title}</div>
+            <div class="options">
+            <label class="label">Select A Day</label>
+            <div class="control">
+            <div class="select">
+            <select>
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tueday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saterday</option>
+            </select>
+            </div>
+            </div>
+            </div>
         `);
         j++
         newPage = i;
