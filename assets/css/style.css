@@ -39,3 +39,9 @@ text-align: center;
     border-radius: 12px;
     width: 15%;
 }
+
+.next-result:hover{
+    cursor: pointer;
+    transition: transform 100ms ;
+    transform: scale(1.3);
+}

@@ -1,38 +1,53 @@
 // for global variables
+var foodAPI;
+var newPage = 0;
 
-
+// function for food api call
 function foodSearchResults(food){
     // Spoonacular API Key
     var spoonAPIKey = "c23f00ad85984a518a8ef39763c81e2b"
     // food = "muffins"; for test purposes
-    var queryURL = "https://api.spoonacular.com/food/products/search?query=" + food + "&apiKey=" + spoonAPIKey;
+    var queryURL = "https://api.spoonacular.com/food/products/search?query=" + food + "&number=100&apiKey=" + spoonAPIKey;
     
     fetch(queryURL)
     .then(function (foodResponse){
         console.log(foodResponse)
         foodResponse.json().then(function (foodData){
             console.log(foodData);
-                       
-            for (var i=0; i<5; i++){
-            $(`#search-result-${i}`).empty()
-            $(`#search-result-${i}`).append(`
-                <img src=${foodData.products[i].image}></img>
-                <div>${foodData.products[i].title}</div>
-            `);
-            
-        
-            };
-
+            foodAPI = foodData;
+            newPage = 0;          
+            createSearchResults(foodAPI, newPage);
         });
     });
     
 };
 
+// function to append the search results to the dom
+function createSearchResults(searchedItem, page){
+    alert(page);
+    if(foodAPI === null){
+        return;
+    }
+    // loop for food search results
+    var j = 0;
+    for (var i=page; i<page+4; i++){
+        console.log(i);
+        $(`#search-result-${j}`).empty()
+        $(`#search-result-${j}`).append(`
+            <img src=${searchedItem.products[i].image}></img>
+            <div>${searchedItem.products[i].title}</div>
+        `);
+        j++
+        newPage = i;
+    };
+};
+
+// function for initial food search
 function foodSearch(evt){
     evt.preventDefault();
     
     var searchInput = $("#food-search-input").val().trim();
-    
+
     // quit function if no input when button clicked
     if (searchInput === null){
         return;
@@ -47,6 +62,11 @@ function foodSearch(evt){
 
 // Food search button handler
 $("#food-search-btn").on("click", foodSearch);
+// Next result button handler
+$(".next-result").on("click", function(evt){
+    createSearchResults(foodAPI, newPage);
+});
+
 
 
 function exerciseSearch(){
