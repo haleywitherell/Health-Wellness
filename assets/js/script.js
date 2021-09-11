@@ -83,9 +83,49 @@ $(".next-result").on("click", function(evt){
     createSearchResults(foodAPI, newPage);
 });
 
-
+var exerciseAPI;
+var exerciseNewPage = 0;
 
 function exerciseSearch(){
+
+fetch("https://exercisedb.p.rapidapi.com/exercises", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "exercisedb.p.rapidapi.com",
+		"x-rapidapi-key": "947315c5d7msh8e150cb96f6debap19e15cjsn514f7b11e3e3"
+	}
+})
+.then(exerciseResponse => {
+	console.log(exerciseResponse);
+    exerciseResponse.json().then(function(exerciseData){
+        console.log(exerciseData);
+        exerciseAPI = exerciseData;
+        exerciseNewPage = 0;
+        createExerciseSearchResults(exerciseAPI, exerciseNewPage);
+        });
+    });
+};
+
+function createExerciseSearchResults(){
+    var k = 0;
+    for (var i = page; i<page+4; i++) {
+        console.log(i);
+        
+
+    }
+};
+
+
+//console.log(exerciseData[Math.floor(Math.random())].name);
+//console.log(exerciseData[0].name)
+
+exerciseSearch();
+
+
+
+
+
+
 
     /* options for searches replaces exercises
     bodypart - waist, upper legs, back, lower legs, chest, upper arms, cardio, shoulders, lower arms, 
@@ -94,24 +134,3 @@ function exerciseSearch(){
                 tire, trap bar, stationary bike, wheel roller, weighted, roller, ez barbell
 
     */
-fetch("https://exercisedb.p.rapidapi.com/exercises", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "exercisedb.p.rapidapi.com",
-		"x-rapidapi-key": "947315c5d7msh8e150cb96f6debap19e15cjsn514f7b11e3e3"
-	}
-})
-.then(response => {
-	console.log(response);
-    response.json().then(function(data){
-        console.log(data);
-    })
-})
-.catch(err => {
-	console.error(err);
-});
-};
-
-exerciseSearch();
-
-
