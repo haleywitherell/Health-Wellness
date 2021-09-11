@@ -122,20 +122,20 @@ fetch("https://exercisedb.p.rapidapi.com/exercises", {
     });
 };
 
-function createExerciseSearchResults(){
-    var k = 0;
-
-    for (var i=0; i<page+4; i++) {
-        $(`#search-result-${k}`). empty()
-        var i = [Math.floor(Math.random()*1326)];
-        $(`#search-result-${k}`).append(`
-        <img src=${searchedItem[i].gifUrl}></img>
+function createExerciseSearchResults(searchedItem){
+    
+    var j;
+    for (var i=0; i<4; i++) {
+        $(`#search-result-${i}`). empty()
+        var j = [Math.floor(Math.random()*1326)];
+        $(`#search-result-${i}`).append(`
+            <img src=${searchedItem[j].gifUrl}></img>
+            <div>${searchedItem[j].name}</div>
         `)
-
-    }
+    };
 };
 
-
+$("#exercise-search-btn").on("click", exerciseSearch);
 
 
 //console.log(exerciseData[Math.floor(Math.random())].name);
