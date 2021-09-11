@@ -128,6 +128,7 @@ function createExerciseSearchResults(){
 exerciseSearch();
 
 
+// function for sending drop down bar info to calander 
 
 
 
