@@ -106,9 +106,15 @@ fetch("https://exercisedb.p.rapidapi.com/exercises", {
     });
 };
 
-function createExerciseSearchResults()
+function createExerciseSearchResults(){
+    var k = 0;
+    for (var i = page; i<page+4; i++) {
+        console.log(i);
+        
 
-$(`#search`)
+    }
+};
+
 
 //console.log(exerciseData[Math.floor(Math.random())].name);
 //console.log(exerciseData[0].name)
