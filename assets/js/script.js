@@ -24,6 +24,7 @@ function foodSearchResults(food){
 
 // function to append the search results to the dom
 function createSearchResults(searchedItem, page){
+    alert(page);
     if(foodAPI === null){
         return;
     }
