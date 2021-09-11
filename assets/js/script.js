@@ -43,7 +43,7 @@ function createSearchResults(searchedItem, page){
             <select>
             <option>Sunday</option>
             <option>Monday</option>
-            <option>Tueday</option>
+            <option>Tuesday</option>
             <option>Wednesday</option>
             <option>Thursday</option>
             <option>Friday</option>
