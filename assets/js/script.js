@@ -12,14 +12,15 @@ function foodSearchResults(food){
         console.log(foodResponse)
         foodResponse.json().then(function (foodData){
             console.log(foodData);
-            
-            //var totalProducts = data.totalProducts;
+                       
             for (var i=0; i<5; i++){
             $(`#search-result-${i}`).empty()
             $(`#search-result-${i}`).append(`
                 <img src=${foodData.products[i].image}></img>
                 <div>${foodData.products[i].title}</div>
             `);
+            
+        
             };
 
         });
@@ -29,7 +30,7 @@ function foodSearchResults(food){
 
 function foodSearch(evt){
     evt.preventDefault();
-    alert("Here!");
+    
     var searchInput = $("#food-search-input").val().trim();
     
     // quit function if no input when button clicked
