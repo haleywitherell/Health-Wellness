@@ -16,6 +16,7 @@ h1 {
     font-size: 50px;
 }
 
+
 .columns {
     padding-top: 30px;
     margin:auto;
@@ -28,7 +29,7 @@ h1 {
     transform: scale(1.125);
 }
 
-.column.box{
+.box{
     min-height: 400px;    
 }
 
@@ -86,4 +87,3 @@ margin-top: 30px;
 #food-search-btn, #exercise-search-btn, .next-result {
     width: 175px;
 }
-
