@@ -61,7 +61,7 @@ function createSearchResults(searchedItem, page){
     // function for sending drop down bar info to calander 
     $("select").change(function(){
         var day = $(this).val()
-        var pickedResult = $(this).attr("title")
+        var pickedResult = $(this).attr("id")
     
         var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent)
         $(`#${day}`).append(newP)
@@ -163,7 +163,7 @@ function createExerciseSearchResults(searchedItem){
     };
 
  // function for sending drop down bar info to calander 
- $("select").change(function(){
+ /*$("select").change(function(){
     var day = $(this).val()
     var pickedResult = $(this).attr("name")
 console.log(pickedResult);
@@ -174,7 +174,7 @@ console.log(day);
     var newP = $("<p>").text($(pickedResult).children()[1].textContent);
     $(`#${day}`).append(newP)
 
-}) 
+}) */
 
 };
 
