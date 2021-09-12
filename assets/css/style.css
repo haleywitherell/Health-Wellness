@@ -45,16 +45,9 @@ margin-top: 30px;
 
 .search-result{
     background-color: lightblue;
-    border-radius: 25px;
+    border-radius: 5px;
     padding: 20px;
     margin: 10px;
-    border: 2px solid black;
-}
-
-.next-result{
-    font-size: 25px;
-    border-radius: 12px;
-    width: 15%;
 }
 
 .next-result:hover{
