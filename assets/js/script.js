@@ -61,7 +61,7 @@ function createSearchResults(searchedItem, page){
     // function for sending drop down bar info to calander 
     $("select").change(function(){
         var day = $(this).val()
-        var pickedResult = $(this).attr("id")
+        var pickedResult = $(this).attr("title")
     
         var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent)
         $(`#${day}`).append(newP)
@@ -124,7 +124,7 @@ function exerciseSearch(){
     .then(exerciseResponse => {
 	    console.log(exerciseResponse);
         exerciseResponse.json().then(function(exerciseData){
-            console.log(exerciseData[Math.floor(Math.random()*1326)]);
+           // console.log(exerciseData[Math.floor(Math.random()*1326)]);
             exerciseAPI = exerciseData;
         
             createExerciseSearchResults(exerciseAPI);
@@ -138,11 +138,44 @@ function createExerciseSearchResults(searchedItem){
     for (var i=0; i<4; i++) {
         $(`#search-result-${i}`). empty()
         var j = [Math.floor(Math.random()*1326)];
+        console.log(j);
         $(`#search-result-${i}`).append(`
             <img src=${searchedItem[j].gifUrl}></img>
             <div>${searchedItem[j].name}</div>
+            <div class="options">
+            <label class="label">Select A Day</label>
+            <div class="control">
+            <div class="select">
+            <select id=${j}>
+            <option>Select a Day</option>
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            </select>
+            </div>
+            </div>
+            </div>
         `)
     };
+
+ // function for sending drop down bar info to calander 
+ $("select").change(function(){
+    var day = $(this).val()
+    var pickedResult = $(this).attr("name")
+console.log(pickedResult);
+console.log(day);
+
+//text is not appearing on the day, says text content is undefined or some error like that.
+// i noticed the picked result is the right number for the id, but there is no other info associated with it.
+    var newP = $("<p>").text($(pickedResult).children()[1].textContent);
+    $(`#${day}`).append(newP)
+
+}) 
+
 };
 
 $("#exercise-search-btn").on("click", exerciseSearch);
