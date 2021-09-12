@@ -38,21 +38,21 @@ function createSearchResults(searchedItem, page){
             <img src=${searchedItem.products[i].image}></img>
             <div>${searchedItem.products[i].title}</div>
             <div class="options">
-            <label class="label">Select A Day</label>
-            <div class="control">
-            <div class="select">
-            <select id=${j}>
-            <option>Select a Day</option>
-            <option>Sunday</option>
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-            <option>Saturday</option>
-            </select>
-            </div>
-            </div>
+                <label class="label">Select A Day</label>
+                <div class="control">
+                    <div class="select">
+                        <select id=${j}>
+                            <option>Select a Day</option>
+                            <option>Sunday</option>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         `);
         j++
@@ -62,7 +62,8 @@ function createSearchResults(searchedItem, page){
     $("select").change(function(){
         var day = $(this).val()
         var pickedResult = $(this).attr("id")
-    
+        console.log(pickedResult);
+        console.log(day);
         var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent)
         $(`#${day}`).append(newP)
     
@@ -143,38 +144,39 @@ function createExerciseSearchResults(searchedItem){
             <img src=${searchedItem[j].gifUrl}></img>
             <div>${searchedItem[j].name}</div>
             <div class="options">
-            <label class="label">Select A Day</label>
-            <div class="control">
-            <div class="select">
-            <select id=${j}>
-            <option>Select a Day</option>
-            <option>Sunday</option>
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-            <option>Saturday</option>
-            </select>
-            </div>
-            </div>
+                <label class="label">Select A Day</label>
+                <div class="control">
+                    <div class="select">
+                        <select id=${i}>
+                            <option>Select a Day</option>
+                            <option>Sunday</option>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         `)
+        
     };
 
  // function for sending drop down bar info to calander 
- /*$("select").change(function(){
+ $("select").change(function(){
     var day = $(this).val()
-    var pickedResult = $(this).attr("name")
+    var pickedResult = $(this).attr("id")
 console.log(pickedResult);
 console.log(day);
 
 //text is not appearing on the day, says text content is undefined or some error like that.
 // i noticed the picked result is the right number for the id, but there is no other info associated with it.
-    var newP = $("<p>").text($(pickedResult).children()[1].textContent);
+    var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent)
     $(`#${day}`).append(newP)
 
-}) */
+})
 
 };
 
