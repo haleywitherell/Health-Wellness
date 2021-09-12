@@ -65,9 +65,10 @@ function createSearchResults(searchedItem, page){
         console.log(pickedResult);
         console.log(day);
         var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent)
-        $(`#${day}`).append(newP)
+        $(`#${day}`).prepend(newP)
     
     })
+   
 };
 
 
