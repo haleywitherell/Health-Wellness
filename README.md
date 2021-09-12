@@ -21,5 +21,5 @@ No known bugs
 ## Contact info
 shawnsmm@gmail.com
 hwitherell22@gmail.com
-justin.oeters.gmail.com
+justin.oeters@gmail.com
 jaredacker1@gmail.com
