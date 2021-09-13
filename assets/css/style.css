@@ -29,7 +29,7 @@ input{
     text-align: center;
 }
 
-.column:hover {
+.column:hover, .next-result:hover, .button:hover {
     cursor: pointer;
     transition: transform 100ms ;
     transform: scale(1.125);
@@ -39,16 +39,16 @@ input{
     min-height: 400px;    
 }
 
-input {
+/* input {
 margin-bottom: 10px;
 margin-top: 30px;
-}
+} */
 
-.field {
+/* .field {
     margin-left: 30%;
     margin: auto;
     width: 30%;
-}
+} */
 
 .search-result{
     background-color:rgb(226, 230, 241);
@@ -57,7 +57,7 @@ margin-top: 30px;
     margin: 10px;
 }
 
-.next-result:hover{
+/* .next-result:hover{
     cursor: pointer;
     transition: transform 100ms ;
 
@@ -67,8 +67,8 @@ margin-top: 30px;
 .button:hover {
     cursor: pointer;
     transition: transform 100ms ;
-    transform: scale(1.1); 
-}
+    transform: scale(1.1);  
+}*/
 
 #grocery-list {
     padding-top: 30px;
@@ -92,9 +92,31 @@ margin-top: 30px;
 
 #food-search-btn, #exercise-search-btn, .next-result {
     width: 175px;
+
+    border-radius: 5px; 
 }
 
-<<<<<<< HEAD
+#food-search-btn {
+    margin-left: 35%;
+}
+
+#exercise-search-btn {
+    float: right;
+    margin-left: 60%; 
+   
+}
+
+.field {
+    margin-top: 10px;
+}
+
+.input {
+    margin-left: 50px;
+    border-radius: 5px;
+=======
+}
+
+
 .remove{
     font-weight: bold;
     background-color: red;
@@ -107,5 +129,5 @@ margin-top: 30px;
 =======
 .button {
     color: rgb(226, 230, 241);
->>>>>>> 57a2c6f0968a2d5a3ba0db240c16fefbff3b7b87
+
 }
