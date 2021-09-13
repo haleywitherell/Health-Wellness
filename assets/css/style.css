@@ -2,6 +2,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.header {
+    background-image: radial-gradient(ellipse, rgb(13, 51, 155), white);
+}
 p {
     text-align: center;
     padding-top: 30px;
@@ -45,7 +48,7 @@ margin-top: 30px;
 }
 
 .search-result{
-    background-color: lightblue;
+    background-color:rgb(217, 224, 245);
     border-radius: 5px;
     padding: 20px;
     margin: 10px;

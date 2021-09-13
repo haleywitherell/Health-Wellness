@@ -13,26 +13,31 @@
 
 <body>
 <!-- banner/ header-->
-<section class="hero is-link">
+<section class="header hero is-link">
   <div class="hero-body">
     <p class="title" >
-      EVENING PLANNER
+      WEEKLY PLANNER
     </p>
   </div>
 </section>
   
   
 <!-- search bars for finding a recipe and workout-->
-
+<div class="field is-grouped">
   
-  <div class="control">
-    <button id="exercise-search-btn" class="button is-info">Click for Workout</button>
-  </div>
-  <form class="padding control">
+  <div class="spacing"></div>
+  <p class="control">
+    <button id="exercise-search-btn" class="button is-info">
+      Click for Workout
+    </button>
+  </p>
+  <form class="control">
       <input id="food-search-input" class="input" type="text" placeholder="Search for a food">
-      <button id="food-search-btn" class="button is-info">Search</button>
-  </form>
-
+      <button id="food-search-btn" class="button is-info">
+        Search
+      </button>
+    </form>
+</div>
 
 <!--search results-->
 <div class="columns">
@@ -58,34 +63,32 @@
 <!-- weekly calendar framework -->
   <section id="weekly-calendar" class="columns">
 
-      <div class="column">Sunday
-        <div id="Sunday" class="box"></div>
-        <button>Save</button>
-        <button>Delete</button>
+      <div id="Sunday" class="column box">Sunday
+        <div id=day1-date></div>
       </div>
   
-      <div class="column">Monday
-        <div id="Monday" class="box"></div>
+      <div id="Monday" class="column box">Monday
+        <div id=day2-date></div>
       </div>
   
-      <div class="column">Tuesday
-        <div id="Tuesday" class="box"></div>
+      <div id="Tuesday" class="column box">Tuesday
+        <div id=day3-date></div>
       </div>
   
-      <div class="column">Wednesday
-        <div id="Wednesday" class="box"></div>
+      <div id="Wednesday" class="column box">Wednesday
+        <div id=day4-date></div>
       </div>
   
-      <div class="column">Thursday
-        <div id="Thursday" class="box"></div>
+      <div id="Thursday" class="column box">Thursday
+        <div id=day5-date></div>
       </div>
   
-      <div class="column">Friday
-        <div id="Friday" class="box"></div>
+      <div id="Friday" class="column box">Friday
+        <div id=day6-date></div>
       </div>
         
-      <div class="column">Saturday
-        <div id="Saturday" class="box"></div>
+      <div id="Saturday" class="column box">Saturday
+        <div id=day7-date></div>
       </div>
       <!-- Corrects style issue with final day of the week -->
       <div id="extra-day" class="column box">
