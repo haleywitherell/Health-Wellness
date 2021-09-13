@@ -3,13 +3,13 @@ var foodAPI;
 var newPage = 0;
 var foodOrExercise = 0;
 var savedDay = {
-    Sunday: [],
-    Monday: [],
-    Tuesday: [],
-    Wednesday: [],
-    Thursday: [],
-    Friday: [],
-    Saturday: []
+    Sunday: [''],
+    Monday: [''],
+    Tuesday: [''],
+    Wednesday: [''],
+    Thursday: [''],
+    Friday: [''],
+    Saturday: ['']
 };
 
 // function for food api call
@@ -72,11 +72,12 @@ function createSearchResults(searchedItem, page){
         var day = $(this).val()
         var pickedResult = $(this).attr("id")
         console.log(pickedResult);
+        day = day.trim();
         console.log(day);
         var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent)
         var savedFood = ($("#search-result-" + pickedResult).children()[1].textContent);
         console.log(savedFood);
-        console.log(savedDay)
+        console.log(savedDay[day])
         savedDay[day].push(savedFood);
         console.log(savedDay[day])
         localStorage.setItem(day, savedDay[day]);
@@ -183,13 +184,15 @@ function createExerciseSearchResults(searchedItem){
  $("select").change(function(){
     var day = $(this).val()
     var pickedResult = $(this).attr("id")
-console.log(pickedResult);
-console.log(day);
+    console.log(pickedResult);
+    day = day.trim();
+    console.log(day);
 
 
     var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent);
     var savedExercise = ($("#search-result-" + pickedResult).children()[1].textContent);
     console.log(savedExercise);
+    console.log(savedDay[day])
     savedDay[day].push(savedExercise)
     localStorage.setItem(day, savedDay[day]);
     $(`#${day}`).append(newP);
@@ -204,7 +207,7 @@ $("#exercise-search-btn").on("click", exerciseSearch);
 $("#deleteSunday").on("click", function(){
     $("#Sunday").empty();
     savedDay = {
-        Sunday: []
+        Sunday: ['']
     };
     localStorage.removeItem("Sunday");
 });
@@ -212,7 +215,7 @@ $("#deleteSunday").on("click", function(){
 $("#deleteMonday").on("click", function(){
     $("#Monday").empty();
     savedDay = {
-        Monday: []
+        Monday: ['']
     };
     localStorage.removeItem("Monday");
 });
@@ -220,7 +223,7 @@ $("#deleteMonday").on("click", function(){
 $("#deleteTuesday").on("click", function(){
     $("#Tuesday").empty();
     savedDay = {
-        Tuesday: []
+        Tuesday: ['']
     };
     localStorage.removeItem("Tuesday");
 });
@@ -228,7 +231,7 @@ $("#deleteTuesday").on("click", function(){
 $("#deleteWednesday").on("click", function(){
     $("#Wednesday").empty();
     savedDay = {
-        Wednesday: []
+        Wednesday: ['']
     };
     localStorage.removeItem("Wednesday");
 });
@@ -236,7 +239,7 @@ $("#deleteWednesday").on("click", function(){
 $("#deleteThursday").on("click", function(){
     $("#Thursday").empty();
     savedDay = {
-        Thursday: []
+        Thursday: ['']
     };
     localStorage.removeItem("Thursday");
 });
@@ -244,7 +247,7 @@ $("#deleteThursday").on("click", function(){
 $("#deleteFriday").on("click", function(){
     $("#Friday").empty();
     savedDay = {
-        Friday: []
+        Friday: ['']
     };
     localStorage.removeItem("Friday");
 });
@@ -252,7 +255,7 @@ $("#deleteFriday").on("click", function(){
 $("#deleteSaturday").on("click", function(){
     $("#Saturday").empty();
     savedDay = {
-        Saturday: []
+        Saturday: ['']
     };
     localStorage.removeItem("Saturday");
 });
