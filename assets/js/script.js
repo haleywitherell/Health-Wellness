@@ -3,14 +3,15 @@ var foodAPI;
 var newPage = 0;
 var foodOrExercise = 0;
 var savedDay = {
-    Sunday: [''],
-    Monday: [''],
-    Tuesday: [''],
-    Wednesday: [''],
-    Thursday: [''],
-    Friday: [''],
-    Saturday: ['']
+    Sunday: [],
+    Monday: [],
+    Tuesday: [],
+    Wednesday: [],
+    Thursday: [],
+    Friday: [],
+    Saturday: []
 };
+var dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 // function for food api call
 function foodSearchResults(food){
@@ -80,9 +81,9 @@ function createSearchResults(searchedItem, page){
         console.log(savedDay[day])
         savedDay[day].push(savedFood);
         console.log(savedDay[day])
-        localStorage.setItem(day, savedDay[day]);
+        
         $(`#${day}`).prepend(newP)
-    
+        localStorage.setItem(day, savedDay[day]);
     })
    
 };
@@ -153,7 +154,7 @@ function createExerciseSearchResults(searchedItem){
     
     var j;
     for (var i=0; i<4; i++) {
-        $(`#search-result-${i}`). empty()
+        $(`#search-result-${i}`).empty()
         var j = [Math.floor(Math.random()*1326)];
         console.log(j);
         $(`#search-result-${i}`).append(`
@@ -194,9 +195,9 @@ function createExerciseSearchResults(searchedItem){
     console.log(savedExercise);
     console.log(savedDay[day])
     savedDay[day].push(savedExercise)
-    localStorage.setItem(day, savedDay[day]);
-    $(`#${day}`).append(newP);
     
+    $(`#${day}`).append(newP);
+    localStorage.setItem(day, savedDay[day]);
 
 })
 
@@ -204,74 +205,39 @@ function createExerciseSearchResults(searchedItem){
 
 $("#exercise-search-btn").on("click", exerciseSearch);
 
+function deleteDay(day){
+    $(`#${dayName[day]}`).empty();  
+    savedDay[dayName[day]] = [];
+    localStorage.removeItem(dayName[day]);
+ };
+
 $("#deleteSunday").on("click", function(){
-    $("#Sunday").empty();
-    savedDay = {
-        Sunday: ['']
-    };
-    localStorage.removeItem("Sunday");
+    deleteDay(0);    
 });
 
 $("#deleteMonday").on("click", function(){
-    $("#Monday").empty();
-    savedDay = {
-        Monday: ['']
-    };
-    localStorage.removeItem("Monday");
+    deleteDay(1);
 });
 
 $("#deleteTuesday").on("click", function(){
-    $("#Tuesday").empty();
-    savedDay = {
-        Tuesday: ['']
-    };
-    localStorage.removeItem("Tuesday");
+    deleteDay(2);
 });
 
 $("#deleteWednesday").on("click", function(){
-    $("#Wednesday").empty();
-    savedDay = {
-        Wednesday: ['']
-    };
-    localStorage.removeItem("Wednesday");
+    deleteDay(3);
 });
 
 $("#deleteThursday").on("click", function(){
-    $("#Thursday").empty();
-    savedDay = {
-        Thursday: ['']
-    };
-    localStorage.removeItem("Thursday");
+    deleteDay(4);
 });
 
 $("#deleteFriday").on("click", function(){
-    $("#Friday").empty();
-    savedDay = {
-        Friday: ['']
-    };
-    localStorage.removeItem("Friday");
+    deleteDay(5);
 });
 
 $("#deleteSaturday").on("click", function(){
-    $("#Saturday").empty();
-    savedDay = {
-        Saturday: ['']
-    };
-    localStorage.removeItem("Saturday");
+    deleteDay(6);
 });
 
 
-(function myinit(){
-
-    var searchList = localStorage.getItem("searchInput");
-    if (searchList === null){
-        return;
-    }
-    console.log(searchList);
-    var searchListArr = searchList.split(",");
-    console.log(searchListArr);
-    for(var i =0; i < searchListArr.length; i++){
-        populateSearchHistory(searchListArr[i]);
-    }
-
-})();
+// load search history from local storage
