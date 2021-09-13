@@ -2,6 +2,7 @@
 var foodAPI;
 var newPage = 0;
 var foodOrExercise = 0;
+var savedDay = [];
 
 // function for food api call
 function foodSearchResults(food){
@@ -65,6 +66,10 @@ function createSearchResults(searchedItem, page){
         console.log(pickedResult);
         console.log(day);
         var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent)
+        var savedFood = ($("#search-result-" + pickedResult).children()[1].textContent);
+        console.log(savedFood);
+        savedDay.push(savedFood);
+        localStorage.setItem(day, savedDay);
         $(`#${day}`).prepend(newP)
     
     })
@@ -126,7 +131,7 @@ function exerciseSearch(){
     .then(exerciseResponse => {
 	    console.log(exerciseResponse);
         exerciseResponse.json().then(function(exerciseData){
-           // console.log(exerciseData[Math.floor(Math.random()*1326)]);
+         
             exerciseAPI = exerciseData;
         
             createExerciseSearchResults(exerciseAPI);
@@ -172,31 +177,23 @@ function createExerciseSearchResults(searchedItem){
 console.log(pickedResult);
 console.log(day);
 
-//text is not appearing on the day, says text content is undefined or some error like that.
-// i noticed the picked result is the right number for the id, but there is no other info associated with it.
-    var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent)
-    $(`#${day}`).append(newP)
+
+    var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent);
+    var savedExercise = ($("#search-result-" + pickedResult).children()[1].textContent);
+    console.log(savedExercise);
+    savedDay.push(savedExercise)
+    localStorage.setItem(day, savedDay);
+    $(`#${day}`).append(newP);
+    
 
 })
 
 };
 
+function saveDay (){
+
+}
+
 $("#exercise-search-btn").on("click", exerciseSearch);
 
-
-//console.log(exerciseData[Math.floor(Math.random())].name);
-//console.log(exerciseData[0].name)
-
-// exerciseSearch();
-
-
-
-
-
-    /* options for searches replaces exercises
-    bodypart - waist, upper legs, back, lower legs, chest, upper arms, cardio, shoulders, lower arms, 
-    equipment - body weight, cable, leverage machine, assisted, medicine ball, stability ball, 
-                band, barbell, dumbbell, kettlebell, sled machine, smith machine, hammer, rope,
-                tire, trap bar, stationary bike, wheel roller, weighted, roller, ez barbell
-
-    */
+$("#saveSunday").on("Click", saveDay)
