@@ -16,6 +16,9 @@ h1 {
     font-size: 50px;
 }
 
+input{
+    max-width: 20px;
+}
 
 .columns {
     padding-top: 30px;
@@ -86,4 +89,15 @@ margin-top: 30px;
 
 #food-search-btn, #exercise-search-btn, .next-result {
     width: 175px;
+}
+
+.remove{
+    font-weight: bold;
+    background-color: red;
+}
+
+.remove:hover {
+    cursor: pointer;
+    transition: transform 100ms ;
+    transform: scale(1.5);
 }
