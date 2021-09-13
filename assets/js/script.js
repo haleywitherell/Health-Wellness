@@ -131,7 +131,7 @@ function exerciseSearch(){
     .then(exerciseResponse => {
 	    console.log(exerciseResponse);
         exerciseResponse.json().then(function(exerciseData){
-           // console.log(exerciseData[Math.floor(Math.random()*1326)]);
+         
             exerciseAPI = exerciseData;
         
             createExerciseSearchResults(exerciseAPI);
@@ -177,8 +177,7 @@ function createExerciseSearchResults(searchedItem){
 console.log(pickedResult);
 console.log(day);
 
-//text is not appearing on the day, says text content is undefined or some error like that.
-// i noticed the picked result is the right number for the id, but there is no other info associated with it.
+
     var newP = $("<p>").text($("#search-result-" + pickedResult).children()[1].textContent);
     var savedExercise = ($("#search-result-" + pickedResult).children()[1].textContent);
     console.log(savedExercise);

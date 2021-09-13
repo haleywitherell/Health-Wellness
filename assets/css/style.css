@@ -2,6 +2,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.header {
+    background-image: radial-gradient(ellipse, rgb(32, 59, 136), white);
+}
 p {
     text-align: center;
     padding-top: 30px;
@@ -48,7 +51,7 @@ margin-top: 30px;
 }
 
 .search-result{
-    background-color: lightblue;
+    background-color:rgb(226, 230, 241);
     border-radius: 5px;
     padding: 20px;
     margin: 10px;
@@ -91,6 +94,7 @@ margin-top: 30px;
     width: 175px;
 }
 
+<<<<<<< HEAD
 .remove{
     font-weight: bold;
     background-color: red;
@@ -100,4 +104,8 @@ margin-top: 30px;
     cursor: pointer;
     transition: transform 100ms ;
     transform: scale(1.5);
+=======
+.button {
+    color: rgb(226, 230, 241);
+>>>>>>> 57a2c6f0968a2d5a3ba0db240c16fefbff3b7b87
 }
