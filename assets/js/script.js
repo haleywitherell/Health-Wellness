@@ -250,12 +250,14 @@ function myinit(){
         
              console.log(savedDay[dayName[i]])
              console.log(savedDay[dayName[i]].length)
-             for(var j = 0; j<savedDay[dayName[j]].length; j++){
+             for(var j = 0; j<savedDay[dayName[i]].length; j++){
                  $(`#${dayName[i]}`).append(`
-                     <div>${savedDay[dayName[j]]}</div>
+                     <div>${savedDay[dayName[i]][j]}</div>
                  `)};
+         }else{
+            savedDay[dayName[i]] = [];  
          };
      };
 };
 
-//myinit();
+myinit();
