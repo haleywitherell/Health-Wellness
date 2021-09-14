@@ -12,6 +12,8 @@ var savedDay = {
     Saturday: []
 };
 var dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+var exerciseAPI;
+
 
 // function for food api call
 function foodSearchResults(food){
@@ -88,10 +90,6 @@ function createSearchResults(searchedItem, page){
    
 };
 
-
-// $("document").on("change", "select", function() {
-//     console.log("there was change")
-// })
 // function for initial food search
 function foodSearch(evt){
     evt.preventDefault();
@@ -125,11 +123,7 @@ $(".next-result").on("click", function(evt){
     };
 });
 
-var exerciseAPI;
-
-
-// console.log($("select"))
-
+// pull exercise info from api
 function exerciseSearch(){
     
     foodOrExercise = 2;
@@ -149,7 +143,7 @@ function exerciseSearch(){
             });
         });
     };
-
+// create workouts results
 function createExerciseSearchResults(searchedItem){
     
     var j;
@@ -202,15 +196,17 @@ function createExerciseSearchResults(searchedItem){
 })
 
 };
-
+// exercise click handler
 $("#exercise-search-btn").on("click", exerciseSearch);
 
+// function to delete items per day
 function deleteDay(day){
     $(`#${dayName[day]}`).empty();  
     savedDay[dayName[day]] = [];
     localStorage.removeItem(dayName[day]);
  };
 
+ // handlers for delete buttons
 $("#deleteSunday").on("click", function(){
     deleteDay(0);    
 });
@@ -241,3 +237,25 @@ $("#deleteSaturday").on("click", function(){
 
 
 // load search history from local storage
+function myinit(){
+
+     for (var i=0; i<7; i++){
+
+         savedDay[dayName[i]] = localStorage.getItem(dayName[i]);
+         if(savedDay[dayName[i]] !== null){
+        
+             console.log(savedDay[dayName[i]])    
+        
+             savedDay[dayName[i]] = savedDay[dayName[i]].split(",");
+        
+             console.log(savedDay[dayName[i]])
+             console.log(savedDay[dayName[i]].length)
+             for(var j = 0; j<savedDay[dayName[j]].length; j++){
+                 $(`#${dayName[i]}`).append(`
+                     <div>${savedDay[dayName[j]]}</div>
+                 `)};
+         };
+     };
+};
+
+//myinit();
