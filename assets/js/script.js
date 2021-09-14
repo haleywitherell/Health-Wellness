@@ -211,7 +211,7 @@ function deleteDay(day){
     localStorage.removeItem(dayName[day]);
  };
 
-$("#deleteSunday").on("click", function(){
+$("#deleteSunday", ".button is-info").on("click", function(){
     deleteDay(0);    
 });
 
